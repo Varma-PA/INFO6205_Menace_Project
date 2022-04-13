@@ -15,6 +15,15 @@ public class MainJavaTest {
         assertEquals(sum, 3);
 
     }
+    
+    @Test
+    public void generalTest2(){
+        MainJava mainJava = new MainJava();
+        
+        int sum = mainJava.addTwoNumbers(3, 4);
+        
+        assertEquals(sum, 7);
+    }
 
 
 
