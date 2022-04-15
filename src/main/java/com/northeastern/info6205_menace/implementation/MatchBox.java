@@ -55,9 +55,9 @@ public class MatchBox {
 
         int theRandomNumber = random.nextInt(8);
 
-        if (getBlueBeads() == 0 || getRedBeads() == 0 || getOrangeBeads() == 0 ||
-                getGreenBeads() == 0 || getPinkBeads() == 0 || getPurpleBeads() == 0 ||
-                getYellowBeads() == 0 || getGreyBeads() == 0 || getBlackBeads() == 0) {
+        if (getBlueBeads() == 0 && getRedBeads() == 0 && getOrangeBeads() == 0 &&
+                getGreenBeads() == 0 && getPinkBeads() == 0 && getPurpleBeads() == 0 &&
+                getYellowBeads() == 0 && getGreyBeads() == 0 && getBlackBeads() == 0) {
             throw new RuntimeException("Match Box is Empty!!!");
         }
 
