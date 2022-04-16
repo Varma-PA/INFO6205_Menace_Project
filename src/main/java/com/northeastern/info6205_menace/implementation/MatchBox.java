@@ -4,6 +4,11 @@
  */
 package com.northeastern.info6205_menace.implementation;
 
+import com.northeastern.info6205_menace.adt.BagInterface;
+import com.northeastern.info6205_menace.adt.Bag_Array;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 
 /**
@@ -11,6 +16,10 @@ import java.util.Random;
  * This class is used to store the number of each colored beads
  */
 public class MatchBox {
+
+    Logger logger = LoggerFactory.getLogger(MatchBox.class.getName());
+
+    BagInterface<Integer> bag = new Bag_Array<Integer>();
 
     private int blueBeads = 0;
 
@@ -31,22 +40,50 @@ public class MatchBox {
     private int blackBeads = 0;
 
 
-    public MatchBox(int numberOfBeads) {
+    public MatchBox(int eachColourNumberOfBeads) {
 
-        this.blueBeads = numberOfBeads;
-        this.redBeads = numberOfBeads;
-        this.orangeBeads = numberOfBeads;
-        this.greenBeads = numberOfBeads;
-        this.pinkBeads = numberOfBeads;
-        this.purpleBeads = numberOfBeads;
-        this.yellowBeads = numberOfBeads;
-        this.greyBeads = numberOfBeads;
-        this.blackBeads = numberOfBeads;
+        this.blueBeads = eachColourNumberOfBeads;
+        this.redBeads = eachColourNumberOfBeads;
+        this.orangeBeads = eachColourNumberOfBeads;
+        this.greenBeads = eachColourNumberOfBeads;
+        this.pinkBeads = eachColourNumberOfBeads;
+        this.purpleBeads = eachColourNumberOfBeads;
+        this.yellowBeads = eachColourNumberOfBeads;
+        this.greyBeads = eachColourNumberOfBeads;
+        this.blackBeads = eachColourNumberOfBeads;
+
+        for(int i = 0; i < eachColourNumberOfBeads; i ++){
+            int j = 0;
+            while(j < 8){
+                bag.add(j);
+                j++;
+            }
+        }
 
     }
 
-    public void getBead(char[][] matchBoxInput) {
+    public int getRandomBeadFromBag(){
 
+        if(bag.isEmpty()) throw new RuntimeException("Bag is Empty!!");
+
+        Random random = new Random();
+
+        logger.info(bag.size()+"");
+
+        int pickRandom = random.nextInt(bag.size());
+
+        return bag.grabByIndex(pickRandom);
+    }
+
+    public int getRandomBeadFromBag(int beadNumber){
+
+        if(bag.isEmpty()) throw new RuntimeException("Bag is Empty!!");
+
+//        Random random = new Random();
+//
+//        int pickRandom = random.nextInt(bag.size());
+
+        return bag.grab(beadNumber);
     }
 
     public int pickRandomBead() {
@@ -131,6 +168,10 @@ public class MatchBox {
                 throw new RuntimeException("Give Valid input");
 //                return -1;
         }
+    }
+
+    public int getTotalMatchBoxSize(){
+        return bag.size();
     }
 
 

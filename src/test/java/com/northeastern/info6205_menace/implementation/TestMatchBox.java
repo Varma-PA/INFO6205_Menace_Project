@@ -6,6 +6,8 @@ package com.northeastern.info6205_menace.implementation;
 
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
@@ -14,6 +16,8 @@ import static org.junit.Assert.assertThrows;
  * @author achyuthvarma
  */
 public class TestMatchBox {
+
+    Logger logger = LoggerFactory.getLogger(TestMatchBox.class);
 
     @Test
     public void testRandomPickOne() {
@@ -96,6 +100,72 @@ public class TestMatchBox {
 //        thrown.expectMessage("Match Box is Empty!!!");
 
         matchBox.pickRandomBead();
+
+    }
+
+//    @Test(expected = RuntimeException.class)
+    @Test
+    public void testingFrequencyOfPicksFromBag(){
+
+        int alpha = 2;
+
+        MatchBox matchBox = new MatchBox(alpha);
+
+        int occurrencesOfOneValue = 0;
+
+        int totalLoop = alpha * 8;
+
+        int i = 0;
+
+        while(i < totalLoop){
+
+            int pickedUpValue = matchBox.getRandomBeadFromBag();
+
+            if(pickedUpValue == 0){
+                occurrencesOfOneValue++;
+            }
+            i++;
+        }
+        logger.info("Total Occurrences: "+occurrencesOfOneValue);
+        assertEquals(occurrencesOfOneValue, 2);
+    }
+
+    @Test
+    public void testBagSize(){
+
+        MatchBox matchBox = new MatchBox(1);
+
+        assertEquals(8, matchBox.getTotalMatchBoxSize());
+
+    }
+
+    @Test
+    public void pickOneFromBag(){
+
+        int alpha = 1;
+
+        MatchBox matchBox = new MatchBox(alpha);
+
+        logger.info("Inserted "+8*alpha+" total beads");
+
+        assertEquals(8*alpha, matchBox.getTotalMatchBoxSize());
+
+        logger.info("Removing one bead and the remaining will be "+((alpha * 8) - 1));
+
+        matchBox.getRandomBeadFromBag();
+
+        assertEquals(8*alpha - 1, matchBox.getTotalMatchBoxSize());
+
+    }
+
+
+    @Test(expected = RuntimeException.class)
+    public void testRandomPickFromBagException(){
+        MatchBox matchBox = new MatchBox(0);
+
+        logger.info("Giving zero beads, so error should be thrown");
+
+        matchBox.getRandomBeadFromBag();
 
     }
 

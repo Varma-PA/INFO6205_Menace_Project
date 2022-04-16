@@ -11,6 +11,10 @@ public interface BagInterface<Item> extends Iterable<Item> {
 
     public Iterator<Item> iterator();
 
-    public Item grab();
+    public Item grab(Item item);
+
+    public Item grabByIndex(int index);
+
+    public void add(Item item);
 
 }
