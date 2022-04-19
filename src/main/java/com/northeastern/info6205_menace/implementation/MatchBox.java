@@ -39,18 +39,17 @@ public class MatchBox {
 
     private int blackBeads = 0;
 
-
     public MatchBox(int eachColourNumberOfBeads) {
 
-        this.blueBeads = eachColourNumberOfBeads;
-        this.redBeads = eachColourNumberOfBeads;
-        this.orangeBeads = eachColourNumberOfBeads;
-        this.greenBeads = eachColourNumberOfBeads;
-        this.pinkBeads = eachColourNumberOfBeads;
-        this.purpleBeads = eachColourNumberOfBeads;
-        this.yellowBeads = eachColourNumberOfBeads;
-        this.greyBeads = eachColourNumberOfBeads;
-        this.blackBeads = eachColourNumberOfBeads;
+//        this.blueBeads = eachColourNumberOfBeads;
+//        this.redBeads = eachColourNumberOfBeads;
+//        this.orangeBeads = eachColourNumberOfBeads;
+//        this.greenBeads = eachColourNumberOfBeads;
+//        this.pinkBeads = eachColourNumberOfBeads;
+//        this.purpleBeads = eachColourNumberOfBeads;
+//        this.yellowBeads = eachColourNumberOfBeads;
+//        this.greyBeads = eachColourNumberOfBeads;
+//        this.blackBeads = eachColourNumberOfBeads;
 
         for(int i = 0; i < eachColourNumberOfBeads; i ++){
             int j = 0;
@@ -84,6 +83,17 @@ public class MatchBox {
 //        int pickRandom = random.nextInt(bag.size());
 
         return bag.grab(beadNumber);
+    }
+
+    public void removeBeadsByDelta(int beadNumber, int delta){
+        try{
+            for(int i = 0; i < delta; i++){
+                getRandomBeadFromBag(beadNumber);
+            }
+        }
+        catch (RuntimeException e){
+            System.out.println("Pass it off");
+        }
     }
 
     public int pickRandomBead() {
@@ -167,6 +177,12 @@ public class MatchBox {
             default:
                 throw new RuntimeException("Give Valid input");
 //                return -1;
+        }
+    }
+
+    public void addParticularBeads(int beadNumber, int multiple){
+        for(int i = 0; i < multiple; i++){
+            bag.add(beadNumber);
         }
     }
 
