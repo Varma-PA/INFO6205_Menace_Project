@@ -7,7 +7,15 @@ import static com.northeastern.info6205_menace.implementation.Board.printBoard;
 
 public class GamePlayerVsPlayer {
 
-    public void gamePlay(){
+    public static void main(String[] args) {
+
+        GamePlayerVsPlayer game = new GamePlayerVsPlayer();
+
+        game.gamePlay();
+
+    }
+
+    public void gamePlay() {
         GamePlayerVsPlayer game = new GamePlayerVsPlayer();
 
         int i = 0;
@@ -24,7 +32,6 @@ public class GamePlayerVsPlayer {
             char characterTurn = returnCharacter(i);
 
             System.out.println("Chance: " + characterTurn);
-
             testCharacters = tempGiveUserInput(testCharacters, i);
 
             if (getResult(testCharacters, characterTurn)) {
@@ -37,15 +44,6 @@ public class GamePlayerVsPlayer {
         if (i == 9) {
             System.out.println("Game is a draw!!!");
         }
-    }
-
-
-    public static void main(String[] args) {
-
-        GamePlayerVsPlayer game = new GamePlayerVsPlayer();
-
-        game.gamePlay();
-
     }
 
     public char returnCharacter(int i) {

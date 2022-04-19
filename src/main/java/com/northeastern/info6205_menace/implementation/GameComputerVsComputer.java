@@ -143,8 +143,6 @@ public class GameComputerVsComputer {
 
 
         try {
-
-
             int randomBeadFromBagNumber = theHashTable.get(chance / 2).getRandomBeadFromBag();
             int[] getCoordinates = theBoard.convertIntegerToCoordinate(randomBeadFromBagNumber);
 

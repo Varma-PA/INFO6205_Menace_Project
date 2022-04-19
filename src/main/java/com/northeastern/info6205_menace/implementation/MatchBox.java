@@ -53,7 +53,7 @@ public class MatchBox {
 
         for(int i = 0; i < eachColourNumberOfBeads; i ++){
             int j = 0;
-            while(j < 8){
+            while(j < 9){
                 bag.add(j);
                 j++;
             }

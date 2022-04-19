@@ -19,68 +19,68 @@ public class TestMatchBox {
 
     Logger logger = LoggerFactory.getLogger(TestMatchBox.class);
 
-    @Test
-    public void testRandomPickOne() {
+//    @Test
+//    public void testRandomPickOne() {
+//
+//        MatchBox matchBox = new MatchBox(1);
+//
+//        int number = matchBox.pickRandomBead();
+//
+//        System.out.println(number);
+//
+//        if (number == 0) {
+//            assertEquals(0, matchBox.getBlueBeads());
+//        } else if (number == 1) {
+//            assertEquals(0, matchBox.getRedBeads());
+//        } else if (number == 2) {
+//            assertEquals(0, matchBox.getOrangeBeads());
+//        } else if (number == 3) {
+//            assertEquals(0, matchBox.getGreenBeads());
+//        } else if (number == 4) {
+//            assertEquals(0, matchBox.getPinkBeads());
+//        } else if (number == 5) {
+//            assertEquals(0, matchBox.getPurpleBeads());
+//        } else if (number == 6) {
+//            assertEquals(0, matchBox.getYellowBeads());
+//        } else if (number == 7) {
+//            assertEquals(0, matchBox.getGreyBeads());
+//        } else if (number == 8) {
+//            assertEquals(0, matchBox.getBlackBeads());
+//        }
+//
+//    }
 
-        MatchBox matchBox = new MatchBox(1);
 
-        int number = matchBox.pickRandomBead();
-
-        System.out.println(number);
-
-        if (number == 0) {
-            assertEquals(0, matchBox.getBlueBeads());
-        } else if (number == 1) {
-            assertEquals(0, matchBox.getRedBeads());
-        } else if (number == 2) {
-            assertEquals(0, matchBox.getOrangeBeads());
-        } else if (number == 3) {
-            assertEquals(0, matchBox.getGreenBeads());
-        } else if (number == 4) {
-            assertEquals(0, matchBox.getPinkBeads());
-        } else if (number == 5) {
-            assertEquals(0, matchBox.getPurpleBeads());
-        } else if (number == 6) {
-            assertEquals(0, matchBox.getYellowBeads());
-        } else if (number == 7) {
-            assertEquals(0, matchBox.getGreyBeads());
-        } else if (number == 8) {
-            assertEquals(0, matchBox.getBlackBeads());
-        }
-
-    }
-
-
-    @Test
-    public void testPickingUpInLoop() {
-        MatchBox matchBox = new MatchBox(1);
-
-        int i = 0;
-
-        while (i < 8) {
-            int number = matchBox.pickRandomBead();
-            if (number == 0) {
-                assertEquals(0, matchBox.getBlueBeads());
-            } else if (number == 1) {
-                assertEquals(0, matchBox.getRedBeads());
-            } else if (number == 2) {
-                assertEquals(0, matchBox.getOrangeBeads());
-            } else if (number == 3) {
-                assertEquals(0, matchBox.getGreenBeads());
-            } else if (number == 4) {
-                assertEquals(0, matchBox.getPinkBeads());
-            } else if (number == 5) {
-                assertEquals(0, matchBox.getPurpleBeads());
-            } else if (number == 6) {
-                assertEquals(0, matchBox.getYellowBeads());
-            } else if (number == 7) {
-                assertEquals(0, matchBox.getGreyBeads());
-            } else if (number == 8) {
-                assertEquals(0, matchBox.getBlackBeads());
-            }
-            i++;
-        }
-    }
+//    @Test
+//    public void testPickingUpInLoop() {
+//        MatchBox matchBox = new MatchBox(1);
+//
+//        int i = 0;
+//
+//        while (i < 9) {
+//            int number = matchBox.pickRandomBead();
+//            if (number == 0) {
+//                assertEquals(0, matchBox.getBlueBeads());
+//            } else if (number == 1) {
+//                assertEquals(0, matchBox.getRedBeads());
+//            } else if (number == 2) {
+//                assertEquals(0, matchBox.getOrangeBeads());
+//            } else if (number == 3) {
+//                assertEquals(0, matchBox.getGreenBeads());
+//            } else if (number == 4) {
+//                assertEquals(0, matchBox.getPinkBeads());
+//            } else if (number == 5) {
+//                assertEquals(0, matchBox.getPurpleBeads());
+//            } else if (number == 6) {
+//                assertEquals(0, matchBox.getYellowBeads());
+//            } else if (number == 7) {
+//                assertEquals(0, matchBox.getGreyBeads());
+//            } else if (number == 8) {
+//                assertEquals(0, matchBox.getBlackBeads());
+//            }
+//            i++;
+//        }
+//    }
 
 
 //    public ExpectedException thrown = ExpectedException.none();
@@ -135,7 +135,7 @@ public class TestMatchBox {
 
         MatchBox matchBox = new MatchBox(1);
 
-        assertEquals(8, matchBox.getTotalMatchBoxSize());
+        assertEquals(9, matchBox.getTotalMatchBoxSize());
 
     }
 
@@ -146,15 +146,15 @@ public class TestMatchBox {
 
         MatchBox matchBox = new MatchBox(alpha);
 
-        logger.info("Inserted "+8*alpha+" total beads");
+        logger.info("Inserted "+9*alpha+" total beads");
 
-        assertEquals(8*alpha, matchBox.getTotalMatchBoxSize());
+        assertEquals(9*alpha, matchBox.getTotalMatchBoxSize());
 
-        logger.info("Removing one bead and the remaining will be "+((alpha * 8) - 1));
+        logger.info("Removing one bead and the remaining will be "+((alpha * 9) - 1));
 
         matchBox.getRandomBeadFromBag();
 
-        assertEquals(8*alpha - 1, matchBox.getTotalMatchBoxSize());
+        assertEquals(9*alpha - 1, matchBox.getTotalMatchBoxSize());
 
     }
 
